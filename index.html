@@ -4,15 +4,49 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="refresh" content="3; url=https://zerobin.net/paste/xxxxx">
-  <title>Redirecting...</title>
-  <script type="text/javascript">
-    setTimeout(function() {
-      window.location.href = "https://zerobin.net";
-    }, 3000);
-  </script>
+  <title>Site Under Maintenance</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      color: #d9534f;
+    }
+    p {
+      font-size: 1.2em;
+    }
+    .container {
+      display: inline-block;
+      text-align: left;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .link {
+      color: #007bff;
+      text-decoration: none;
+    }
+    .link:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-  <h1>Redirecting you...</h1>
-  <p>If you are not redirected automatically, please <a href="https://zerobin.net/paste/xxxxx">click here</a>.</p>
+  <div class="container">
+    <h1>Site Under Maintenance</h1>
+    <p>Hi there! The website is currently undergoing maintenance. The site should be back online shortly!</p>
+    <p>In the meantime, if you'd like to see a paste, please visit <a href="https://zerobin.net/paste/xxxxx" class="link">here</a>.</p>
+    <p>If you're not redirected automatically, click the link above or wait for the page to refresh.</p>
+  </div>
+  <script type="text/javascript">
+    setTimeout(function() {
+      window.location.href = "https://zerobin.net/paste/xxxxx";
+    }, 3000);
+  </script>
 </body>
 </html>
