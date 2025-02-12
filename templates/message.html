@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,7 @@
     <!-- 引入外部CSS样式 (相对路径)，加上时间戳避免缓存 -->
     <link rel="stylesheet" href="/css/styles.css?v=20250212"> <!-- 你可以使用当前的日期或者版本号 -->
 </head>
-</head>
+
 <body>
     <div class="overlay" id="overlay">
         <div>
@@ -49,13 +49,33 @@
     </div>
 
     <script>
+        // 禁止右键点击
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            alert('右键菜单被禁用！');
+        });
 
-
-        // 禁止 F12 键（开发者工具）
+        // 禁止 F12 和 Ctrl+Shift+I（开发者工具）及 Ctrl+U（查看源码）
         document.addEventListener('keydown', function(e) {
-            if (e.keyCode === 123) {  // F12的keyCode是123
+            // F12
+            if (e.keyCode === 123) {
                 e.preventDefault();
                 alert('F12被禁用！');
+            }
+            // Ctrl + U (查看页面源码)
+            if (e.ctrlKey && e.keyCode === 85) {
+                e.preventDefault();
+                alert('查看源码被禁用！');
+            }
+            // Ctrl + Shift + I (开发者工具)
+            if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
+                e.preventDefault();
+                alert('开发者工具被禁用！');
+            }
+            // Ctrl + Shift + J (控制台)
+            if (e.ctrlKey && e.shiftKey && e.keyCode === 74) {
+                e.preventDefault();
+                alert('控制台被禁用！');
             }
         });
 
@@ -88,7 +108,6 @@
         function checkPasswordStatus() {
             const isPasswordVerified = localStorage.getItem('passwordVerified');
             if (isPasswordVerified === 'true') {
-                // 如果密码验证通过，直接显示内容区域
                 document.getElementById('overlay').style.display = 'none';
                 document.getElementById('content').style.display = 'block';
             }
