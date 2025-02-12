@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     background-color: #f4f4f4;
     color: #333;
     line-height: 1.6;
@@ -15,15 +15,17 @@ body {
 header {
     background-color: #333;
     color: white;
-    padding: 20px 10px;
+    padding: 20px;
     text-align: center;
-    font-size: 24px;
+    font-size: 2rem; /* 更灵活的字体大小 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 增加阴影使其更具立体感 */
 }
 
 .container {
     margin: 20px auto;
+    padding: 0 15px;
     max-width: 1200px;
-    padding: 10px;
+    width: 100%;
 }
 
 .code-box {
@@ -35,6 +37,7 @@ header {
     font-family: 'Courier New', Courier, monospace;
     position: relative;
     word-wrap: break-word; /* 防止内容溢出 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 增加阴影，使代码框更有层次感 */
 }
 
 .copy-btn {
@@ -43,29 +46,54 @@ header {
     right: 10px;
     background-color: #4CAF50;
     color: white;
-    padding: 8px 16px;
+    padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 14px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .copy-btn:hover {
     background-color: #45a049;
+    transform: scale(1.05); /* 鼠标悬停时按钮轻微放大 */
 }
 
 .description {
     margin-top: 20px;
-    font-size: 18px;
+    font-size: 1.125rem; /* 更灵活的字体大小 */
     color: #555;
     line-height: 1.8;
 }
 
-/* 响应式设计 */
+@media (max-width: 1024px) {
+    header {
+        font-size: 1.5rem;
+        padding: 15px;
+    }
+
+    .container {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .code-box {
+        padding: 15px;
+    }
+
+    .copy-btn {
+        padding: 8px 16px;
+        font-size: 12px;
+    }
+
+    .description {
+        font-size: 1rem;
+    }
+}
+
 @media (max-width: 768px) {
     header {
-        font-size: 20px;
+        font-size: 1.25rem;
         padding: 15px 10px;
     }
 
@@ -79,18 +107,18 @@ header {
     }
 
     .copy-btn {
-        padding: 6px 12px;
+        padding: 8px 14px;
         font-size: 12px;
     }
 
     .description {
-        font-size: 16px;
+        font-size: 0.9rem;
     }
 }
 
 @media (max-width: 480px) {
     header {
-        font-size: 18px;
+        font-size: 1rem;
         padding: 12px 10px;
     }
 
@@ -104,11 +132,26 @@ header {
     }
 
     .copy-btn {
-        padding: 5px 10px;
+        padding: 6px 12px;
         font-size: 10px;
     }
 
     .description {
-        font-size: 14px;
+        font-size: 0.875rem;
+    }
+}
+
+/* 超宽屏优化 */
+@media (min-width: 1600px) {
+    .container {
+        max-width: 1400px; /* 超宽屏时扩展容器宽度 */
+    }
+
+    header {
+        font-size: 2.5rem; /* 更大字号适应宽屏 */
+    }
+
+    .code-box {
+        font-size: 1.1rem; /* 稍微增大代码框字体 */
     }
 }
