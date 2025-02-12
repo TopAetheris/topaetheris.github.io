@@ -28,7 +28,9 @@
         }
 
         .container {
-            margin: 20px;
+            margin: 0 auto;
+            max-width: 1200px; /* 设置最大宽度 */
+            padding: 20px;
         }
 
         .code-box {
@@ -37,6 +39,9 @@
             padding: 20px;
             border-radius: 8px;
             margin-top: 20px;
+            overflow-x: auto; /* 允许水平滚动 */
+            width: 100%;
+            box-sizing: border-box;
         }
 
         /* 修正按钮位置 */
@@ -44,48 +49,30 @@
             position: absolute;
             top: 10px;
             right: 10px;
-            background-color: #4CAF50;
+            background-color: #444;
             color: white;
             border: none;
-            padding: 8px 16px;
+            padding: 6px 12px;
             cursor: pointer;
             border-radius: 4px;
+            font-size: 14px;
         }
 
         .copy-btn:hover {
-            background-color: #45a049;
+            background-color: #333;
         }
 
         pre {
             background-color: #2d2d2d;
             border-radius: 8px;
             padding: 20px;
+            white-space: pre-wrap;       /* 自动换行 */
+            word-wrap: break-word;       /* 自动换行 */
+            overflow-wrap: break-word;   /* 防止过长的单词溢出 */
         }
 
         .description {
             margin-top: 20px;
-        }
-
-        /* 添加底部按钮样式 */
-        .bottom-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 40px;
-        }
-
-        .bottom-buttons button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            cursor: pointer;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-
-        .bottom-buttons button:hover {
-            background-color: #45a049;
         }
 
         /* 置顶按钮样式 */
@@ -100,11 +87,21 @@
             cursor: pointer;
             border-radius: 50%;
             font-size: 24px;
+            display: none;
         }
 
         .top-button:hover {
             background-color: #e53935;
         }
+
+        /* 当滚动到一定距离显示置顶按钮 */
+        window.onscroll = function() {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                document.querySelector('.top-button').style.display = 'block';
+            } else {
+                document.querySelector('.top-button').style.display = 'none';
+            }
+        };
 
     </style>
 </head>
@@ -135,12 +132,6 @@
             <p>
                 在你的网站下创建 .github/ 文件夹, 之后输入以下代码
             </p>
-        </div>
-        
-        <!-- 底部按钮 -->
-        <div class="bottom-buttons">
-            <a href="./index.html"><button>返回主页</button></a> <!-- 使用根路径指向主页 -->
-
         </div>
     </div>
 
