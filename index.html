@@ -3,17 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>显示代码页面</title>
-    <!-- 引入外部CSS样式 (相对路径)，加上时间戳避免缓存 -->
-    <link rel="stylesheet" href="/css/styles.css?v=20250212"> <!-- 你可以使用当前的日期或者版本号 -->
+    <title>以太之巅 - 门户</title>
+    <link rel="stylesheet" href="/css/styles.css?v=20250212">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 每4个按钮一排 */
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .grid a {
+            display: block;
+            padding: 15px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .grid a:hover {
+            background: #0056b3;
+        }
+        .articles, .links {
+            margin-top: 40px;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .articles h2, .links h2 {
+            margin-bottom: 15px;
+        }
+        .article-list, .link-list {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 每4个按钮一排 */
+            gap: 15px;
+        }
+        .article-list a, .link-list a {
+            display: block;
+            padding: 10px;
+            background: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .article-list a:hover, .link-list a:hover {
+            background: #1e7e34;
+        }
+        /* 底部视频区域 */
+        .video-section {
+            margin-top: 40px;
+            padding: 20px;
+            background: #000; /* 黑底 */
+            color: #fff; /* 白字 */
+            border-radius: 8px;
+        }
+        .video-section iframe {
+            width: 100%;
+            height: 500px; /* 视频高度 */
+            border: none;
+            border-radius: 8px;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>以太之巅欢迎你</h1>
-    <p>本站主要提供计算机应用技术支持</p>
-    <p>在此期间，你可以访问以下页面：</p>
-    <p><a href="https://topaetheris.github.io/templates/message.html" class="link" target="_blank">这里是一个加密页面的测试</a></p>
-    <p>如果你愿意，欢迎稍后再回来，网站会恢复上线的。</p>
-  </div>
+    <div class="container">
+        <h1>以太之巅欢迎你</h1>
+        <p>本站主要提供计算机应用技术支持</p>
+        <p>你可以访问以下页面：</p>
+        <div class="grid">
+            <a href="https://topaetheris.github.io/templates/message.html" target="_blank">加密页面测试</a>
+            <a href="#">技术文档</a>
+            <a href="#">软件下载</a>
+            <a href="#">开发者论坛</a>
+            <a href="#">API 参考</a>
+            <a href="#">帮助中心</a>
+            <a href="#">API 参考</a>
+            <a href="#">帮助中心</a>
+        </div>
+        <div class="articles">
+            <h2>技术文章</h2>
+            <div class="article-list">
+                <a href="#">如何优化你的代码性能</a>
+                <a href="#">深入理解并发编程</a>
+                <a href="#">最新Web开发趋势</a>
+                <a href="#">数据库优化策略</a>
+                <a href="#">机器学习基础入门</a>
+                <a href="#">前端框架对比分析</a>
+                <a href="#">服务器安全配置指南</a>
+                <a href="#">网络协议解析</a>
+                <a href="#">网络协议解析</a>
+            </div>
+        </div>
+        <div class="links">
+            <h2>友情链接</h2>
+            <div class="link-list">
+                <a href="#">网站1</a>
+                <a href="#">网站2</a>
+                <a href="#">网站3</a>
+                <a href="#">网站4</a>
+                <a href="#">网站5</a>
+                <a href="#">网站6</a>
+            </div>
+        </div>
+        <p>如果你愿意，欢迎稍后再回来，网站会恢复上线的。</p>
+    </div>
+
+    <!-- 底部视频区域 -->
+    <div class="video-section">
+        <h2>精彩视频</h2>
+        <iframe src="https://www.dailymotion.com/embed/video/x8r0zq9" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    </div>
 </body>
 </html>
