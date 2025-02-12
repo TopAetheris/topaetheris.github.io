@@ -45,6 +45,7 @@ console.log("Welcome to TopAetheris!");
 document.getElementById('app').innerHTML = "Hello from TopAetheris!";
 
 创建webpack.config.js 构建styles.css 和 index.html 文件。
+
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 

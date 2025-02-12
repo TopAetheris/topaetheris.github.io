@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>以太之巅</title>
+    <link rel="stylesheet" href="/css/styles.css?v=20250212">
+    <link rel="icon" href="https://www.aetheris.top/logo/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <header>
+        <h1>显示代码</h1>
+    </header>
+
+    <div class="container" id="content">
+        <h2>遗传代码：</h2>
+        <div class="code-box">
+            <button class="copy-btn" onclick="copyCode()">复制</button>
+            <pre><code id="code-content">
+			topaetheris.github.io/
+			  ├── .github/
+				  ├── workflows/
+					  └── deploy.yml
+			  ├── index.html
+			  ├── css/
+			  ├── js/
+			  ├── ...
+            </code></pre>
+        </div>
+
+        <div class="description">
+            <h3>代码功能说明：</h3>
+            <p>
+                在你的网站下创建.github/文件夹,之后输入以下代码
+            </p>
+        </div>
+        <div class="code-box">
+            <button class="copy-btn" onclick="copyCode()">复制</button>
+            <pre><code id="code-content">
+			name: Deploy to GitHub Pages
+
+			on:
+			  push:
+				branches:
+				  - main
+
+			jobs:
+			  build:
+				runs-on: ubuntu-latest
+
+				steps:
+				  - name: Checkout code
+					uses: actions/checkout@v2
+
+				  - name: Set up Node.js
+					uses: actions/setup-node@v2
+					with:
+					  node-version: '14'
+
+				  - name: Install dependencies
+					run: npm install
+
+				  - name: Build the project
+					run: npm run build
+
+				  - name: Deploy to GitHub Pages
+					uses: JamesIves/github-pages-deploy-action@v4
+					with:
+					  branch: gh-pages
+					  folder: dist
+            </code></pre>
+        </div>
+
+        <div class="description">
+            <h3>代码功能说明：</h3>
+            <p>
+                在你的网站下创建.github/文件夹,之后输入以下代码
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // 复制代码到剪贴板
+        function copyCode() {
+            const codeContent = document.getElementById('code-content');
+            const range = document.createRange();
+            range.selectNode(codeContent);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+
+            try {
+                document.execCommand('copy');
+                alert('代码已复制！');
+            } catch (err) {
+                alert('复制失败！');
+            }
+
+            window.getSelection().removeAllRanges();
+        }
+    </script>
+</body>
+
+</html>
