@@ -28,19 +28,18 @@
             gap: 15px;
             margin-top: 20px;
         }
-		.grid a {
-			display: block;
-			padding: 15px;
-			background: #cc5500; /* 更深的橙色 */
-			color: white;
-			text-decoration: none;
-			border-radius: 5px;
-			transition: background 0.3s;
-		}
-
-		.grid a:hover {
-			background: #a04000; /* 悬停时更深的颜色 */
-		}
+        .grid a {
+            display: block;
+            padding: 15px;
+            background: #cc5500; /* 更深的橙色 */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .grid a:hover {
+            background: #a04000; /* 悬停时更深的颜色 */
+        }
         .articles, .links {
             margin-top: 40px;
             padding: 20px;
@@ -57,29 +56,30 @@
             grid-template-columns: repeat(4, 1fr); /* 每4个按钮一排 */
             gap: 15px;
         }
-        .article-list a {
+        .article-list a, .link-list a {
             display: block;
             padding: 10px;
-            background: #007bff; /* 技术文章按钮改为蓝色 */
             color: white;
             text-decoration: none;
             border-radius: 5px;
             transition: background 0.3s;
+        }
+        .article-list a {
+            background: #007bff; /* 技术文章按钮改为蓝色 */
         }
         .article-list a:hover {
             background: #0056b3; /* 悬停时深蓝色 */
         }
         .link-list a {
-            display: block;
-            padding: 10px;
             background: #28a745; /* 常用工具按钮保持绿色 */
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s;
         }
         .link-list a:hover {
             background: #1e7e34; /* 悬停时深绿色 */
+        }
+
+        /* 隐藏超出4个按钮的链接 */
+        .collapsed {
+            display: none;
         }
     </style>
 </head>
@@ -88,42 +88,70 @@
         <h1>以太之巅欢迎你</h1>
         <p>本站主要提供计算机应用技术支持</p>
         <p>Based on OpenAI, GitHub, Cloudflare.</p>
+        
+        <!-- 加密页面测试 -->
         <div class="grid">
-			<a href="https://topaetheris.github.io/templates/message.html" target="_blank">加密页面测试</a>
-			<a href="https://topaetheris.github.io/templates/message.html" target="_blank">技术文档</a>
-			<a href="https://topaetheris.github.io/templates/message.html" target="_blank">软件下载</a>
-			<a href="https://topaetheris.github.io/templates/message.html" target="_blank">开发者论坛</a>
-			<a href="https://topaetheris.github.io/templates/message.html" target="_blank">API 参考</a>
-			<a href="https://topaetheris.github.io/templates/message.html" target="_blank">帮助中心</a>
-			<a href="https://topaetheris.github.io/templates/message.html" target="_blank">API 参考</a>
-			<a href="https://topaetheris.github.io/templates/message.html" target="_blank">帮助中心</a>
+            <a href="https://topaetheris.github.io/templates/message.html" target="_blank">加密页面测试</a>
+            <a href="https://topaetheris.github.io/templates/message.html" target="_blank">技术文档</a>
+            <a href="https://topaetheris.github.io/templates/message.html" target="_blank">软件下载</a>
+            <a href="https://topaetheris.github.io/templates/message.html" target="_blank">开发者论坛</a>
         </div>
+        <button onclick="toggleVisibility('more-grid-1')" class="toggle-btn">展开更多</button>
+        <div id="more-grid-1" class="collapsed grid">
+            <a href="https://topaetheris.github.io/templates/message.html" target="_blank">API 参考</a>
+            <a href="https://topaetheris.github.io/templates/message.html" target="_blank">帮助中心</a>
+            <a href="https://topaetheris.github.io/templates/message.html" target="_blank">API 参考</a>
+            <a href="https://topaetheris.github.io/templates/message.html" target="_blank">帮助中心</a>
+        </div>
+
+        <!-- 技术文章 -->
         <div class="articles">
             <h2>技术文章</h2>
             <div class="article-list">
-			<a href="https://topaetheris.github.io/templates/message.html" target="_blank">如何优化你的代码性能</a>
-			<a href="https://topaetheris.github.io/templates/message.html" target="_blank">深入理解并发编程</a>
-			<a href="https://topaetheris.github.io/templates/message.html" target="_blank">最新Web开发趋势</a>
-			<a href="https://topaetheris.github.io/templates/message.html" target="_blank">数据库优化策略</a>
-			<a href="https://topaetheris.github.io/templates/message.html" target="_blank">机器学习基础入门</a>
-			<a href="https://topaetheris.github.io/templates/message.html" target="_blank">前端框架对比分析</a>
-			<a href="https://topaetheris.github.io/templates/message.html" target="_blank">服务器安全配置指南</a>
-			<a href="https://topaetheris.github.io/templates/message.html" target="_blank">网络协议解析</a>
-			<a href="https://topaetheris.github.io/templates/message.html" target="_blank">网络协议解析</a>
+                <a href="https://topaetheris.github.io/templates/message.html" target="_blank">如何优化你的代码性能</a>
+                <a href="https://topaetheris.github.io/templates/message.html" target="_blank">深入理解并发编程</a>
+                <a href="https://topaetheris.github.io/templates/message.html" target="_blank">最新Web开发趋势</a>
+                <a href="https://topaetheris.github.io/templates/message.html" target="_blank">数据库优化策略</a>
+            </div>
+            <button onclick="toggleVisibility('more-articles')" class="toggle-btn">展开更多</button>
+            <div id="more-articles" class="collapsed article-list">
+                <a href="https://topaetheris.github.io/templates/message.html" target="_blank">机器学习基础入门</a>
+                <a href="https://topaetheris.github.io/templates/message.html" target="_blank">前端框架对比分析</a>
+                <a href="https://topaetheris.github.io/templates/message.html" target="_blank">服务器安全配置指南</a>
+                <a href="https://topaetheris.github.io/templates/message.html" target="_blank">网络协议解析</a>
             </div>
         </div>
+
+        <!-- 常用工具 -->
         <div class="links">
             <h2>常用工具</h2>
-				<div class="link-list">
-					<a href="https://www.google.com" target="_blank">Google</a>
-					<a href="https://www.github.com" target="_blank">GitHub</a>
-					<a href="https://www.cloudflare.com" target="_blank">Cloudflare</a>
-					<a href="https://www.stackoverflow.com" target="_blank">Stack Overflow</a>
-					<a href="https://www.reddit.com" target="_blank">Reddit</a>
-					<a href="https://www.wikipedia.org" target="_blank">Wikipedia</a>
-				</div>
+            <div class="link-list">
+                <a href="https://www.google.com" target="_blank">Google</a>
+                <a href="https://www.github.com" target="_blank">GitHub</a>
+                <a href="https://www.cloudflare.com" target="_blank">Cloudflare</a>
+                <a href="https://gchq.github.io/CyberChef/" target="_blank">CyberChef</a>
+            </div>
+            <button onclick="toggleVisibility('more-links')" class="toggle-btn">展开更多</button>
+            <div id="more-links" class="collapsed link-list">
+                <a href="https://nic.us.kg/" target="_blank">US.KG</a>
+                <a href="https://www.dailymotion.com/" target="_blank">dailymotion.com</a>
+                <a href="https://www.google.com" target="_blank">Google</a>
+                <a href="https://www.github.com" target="_blank">GitHub</a>
+            </div>
         </div>
+
         <p>Based on OpenAI, GitHub, Cloudflare.</p>
     </div>
+
+    <script>
+        function toggleVisibility(id) {
+            var element = document.getElementById(id);
+            if (element.style.display === "none") {
+                element.style.display = "block"; // 展开
+            } else {
+                element.style.display = "none"; // 折叠
+            }
+        }
+    </script>
 </body>
 </html>
