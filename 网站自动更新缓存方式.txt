@@ -1,0 +1,37 @@
+步骤 1：安装 Node.js 和 npm
+如果你还没有安装 Node.js 和 npm，请首先下载安装它们。
+
+下载并安装 Node.js.
+
+安装后，打开 命令提示符 或 PowerShell，运行以下命令检查是否安装成功：
+node -v
+npm -v
+
+首先cd到你的项目文件位置.windows下右键打开终端
+E:\topaetheris.github.io
+npm init -y
+
+打开 package.json 文件： 在 E:\topaetheris.github.io 目录下，你应该会看到一个 package.json 文件。
+
+{
+  "name": "topaetheris.github.io",
+  "version": "1.0.0",
+  "description": "Your website description",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack serve --mode development --open",
+    "build": "webpack --mode production"
+  },
+  "devDependencies": {
+    "webpack": "^5.0.0",
+    "webpack-cli": "^4.0.0",
+    "webpack-dev-server": "^4.0.0",
+    "html-webpack-plugin": "^5.0.0",
+    "style-loader": "^3.0.0",
+    "css-loader": "^6.0.0",
+    "file-loader": "^6.0.0"
+  }
+}
+
+运行安装命令这样就会安装所有依赖项，包括 Webpack 等。
+npm install

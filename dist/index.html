@@ -1,0 +1,131 @@
+<!doctype html><html lang="zh"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>以太之巅</title><link rel="stylesheet" href="/css/styles.css?v=20250212"><link rel="icon" href="https://www.aetheris.top/logo/favicon.ico" type="image/x-icon"><style>body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 50px auto;
+            background: #1a1a1a;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .grid a {
+            display: block;
+            padding: 15px;
+            background: #cc5500;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .grid a:hover {
+            background: #a04000;
+        }
+        .articles, .links {
+            margin-top: 40px;
+            padding: 20px;
+            background: #1a1a1a;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+        }
+        .articles h2, .links h2 {
+            margin-bottom: 15px;
+            color: #fff;
+        }
+        .article-list, .link-list {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+        .article-list a, .link-list a {
+            display: block;
+            padding: 10px;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .article-list a {
+            background: #007bff;
+        }
+        .article-list a:hover {
+            background: #0056b3;
+        }
+        .link-list a {
+            background: #28a745;
+        }
+        .link-list a:hover {
+            background: #1e7e34;
+        }
+
+        /* 隐藏超出4个按钮的链接 */
+        .collapsed {
+            display: none;
+        }
+
+        /* 改进展开按钮样式 */
+        .toggle-btn {
+            background-color: #555;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .toggle-btn:hover {
+            background-color: #444;
+        }
+
+        /* 改进展开按钮布局 */
+        .toggle-btn-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .content-with-toggle {
+            margin-bottom: 40px;
+        }
+
+        /* 展开内容区域 */
+        .collapsed.grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        /* 保证展开的内容在展开按钮下面显示 */
+        .toggle-btn {
+            position: relative;
+        }
+
+        /* 设置展开按钮与内容之间的间距 */
+        .collapsed {
+            margin-top: 20px;
+        }</style><script defer="defer" src="main.dfd7aae5b47a36032c6c.js"></script></head><body><div class="container"><h1>以太之巅欢迎你</h1><p>本站主要提供计算机应用技术支持</p><p>静态页面,请定期刷新浏览器缓存</p><div class="content-with-toggle"><div class="grid"><a href="https://topaetheris.github.io/templates/message.html" target="_blank">加密页面测试</a> <a href="https://topaetheris.github.io/templates/message.html" target="_blank">技术文档</a> <a href="https://topaetheris.github.io/templates/message.html" target="_blank">软件下载</a> <a href="https://topaetheris.github.io/templates/message.html" target="_blank">开发者论坛</a></div><div class="toggle-btn-container"><button onclick="toggleVisibility('more-grid-1')" class="toggle-btn">展开更多</button></div><div id="more-grid-1" class="collapsed grid" style="display: none;"><a href="https://topaetheris.github.io/templates/message.html" target="_blank">API 参考</a> <a href="https://topaetheris.github.io/templates/message.html" target="_blank">帮助中心</a> <a href="https://topaetheris.github.io/templates/message.html" target="_blank">API 参考</a> <a href="https://topaetheris.github.io/templates/message.html" target="_blank">帮助中心</a></div></div><div class="content-with-toggle"><div class="articles"><h2>技术文章</h2><div class="article-list"><a href="https://topaetheris.github.io/templates/message.html" target="_blank">如何优化你的代码性能</a> <a href="https://topaetheris.github.io/templates/message.html" target="_blank">深入理解并发编程</a> <a href="https://topaetheris.github.io/templates/message.html" target="_blank">最新Web开发趋势</a> <a href="https://topaetheris.github.io/templates/message.html" target="_blank">数据库优化策略</a></div><div class="toggle-btn-container"><button onclick="toggleVisibility('more-articles')" class="toggle-btn">展开更多</button></div><div id="more-articles" class="collapsed article-list"><a href="https://topaetheris.github.io/templates/message.html" target="_blank">机器学习基础入门</a> <a href="https://topaetheris.github.io/templates/message.html" target="_blank">前端框架对比分析</a> <a href="https://topaetheris.github.io/templates/message.html" target="_blank">服务器安全配置指南</a> <a href="https://topaetheris.github.io/templates/message.html" target="_blank">网络协议解析</a></div></div></div><div class="content-with-toggle"><div class="links"><h2>常用工具</h2><div class="link-list"><a href="https://www.google.com" target="_blank">Google</a> <a href="https://www.github.com" target="_blank">GitHub</a> <a href="https://www.cloudflare.com" target="_blank">Cloudflare</a> <a href="https://gchq.github.io/CyberChef/" target="_blank">CyberChef</a></div><div class="toggle-btn-container"><button onclick="toggleVisibility('more-links')" class="toggle-btn">展开更多</button></div><div id="more-links" class="collapsed link-list"><a href="https://nic.us.kg/" target="_blank">US.KG</a> <a href="https://www.dailymotion.com/" target="_blank">dailymotion.com</a> <a href="https://www.google.com" target="_blank">Google</a> <a href="https://www.github.com" target="_blank">GitHub</a></div></div></div><p>Based on OpenAI, GitHub, Cloudflare.</p></div><script>function toggleVisibility(id) {
+            var element = document.getElementById(id);
+            if (element.style.display === "none") {
+                element.style.display = "grid";
+            } else {
+                element.style.display = "none";
+            }
+        }</script></body></html>
