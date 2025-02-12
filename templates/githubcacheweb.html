@@ -44,10 +44,8 @@
             box-sizing: border-box;
         }
 
-        .copy-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
+        .copy-btn,
+        .back-btn {
             background-color: #444;
             color: white;
             border: none;
@@ -57,7 +55,8 @@
             font-size: 14px;
         }
 
-        .copy-btn:hover {
+        .copy-btn:hover,
+        .back-btn:hover {
             background-color: #333;
         }
 
@@ -74,6 +73,28 @@
             margin-top: 20px;
         }
 
+        .bottom-buttons {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        /* 统一按钮样式 */
+        .bottom-buttons button {
+            background-color: #444;
+            color: white;
+            border: none;
+            padding: 6px 12px; /* 跟复制按钮一样的大小 */
+            font-size: 14px;   /* 与复制按钮一致 */
+            cursor: pointer;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .bottom-buttons button:hover {
+            background-color: #333;
+        }
+
+        /* 置顶按钮 */
         .top-button {
             position: fixed;
             bottom: 20px;
@@ -130,11 +151,12 @@
                 在你的网站下创建 .github/ 文件夹, 之后输入以下代码
             </p>
         </div>
-        
-        <div class="bottom-buttons">
-            <!-- 正确的返回主页链接 -->
-            <a href="/repository-name/index.html"><button>返回主页</button></a>
 
+        <div class="bottom-buttons">
+            <!-- 返回主页按钮，放在文章底部 -->
+            <a href="/topaetheris.github.io/index.html">
+                <button class="back-btn">返回主页</button>
+            </a>
         </div>
     </div>
 
