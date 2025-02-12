@@ -10,15 +10,16 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #000; /* 背景颜色改为黑色 */
+            color: #fff; /* 文字颜色改为白色 */
             text-align: center;
         }
         .container {
             max-width: 1000px;
             margin: 50px auto;
-            background: #fff;
+            background: #1a1a1a; /* 容器背景颜色改为深灰色 */
             padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* 阴影颜色调整为白色 */
             border-radius: 8px;
         }
         .grid {
@@ -39,15 +40,22 @@
         .grid a:hover {
             background: #0056b3;
         }
+        .grid a[href="#"]:nth-child(2) { /* 技术文档按钮 */
+            background: #ff8c42; /* 橙色 */
+        }
+        .grid a[href="#"]:nth-child(2):hover {
+            background: #e67300; /* 深橙色 */
+        }
         .articles, .links {
             margin-top: 40px;
             padding: 20px;
-            background: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background: #1a1a1a; /* 文章和链接区域背景颜色改为深灰色 */
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* 阴影颜色调整为白色 */
             border-radius: 8px;
         }
         .articles h2, .links h2 {
             margin-bottom: 15px;
+            color: #fff; /* 标题文字颜色改为白色 */
         }
         .article-list, .link-list {
             display: grid;
