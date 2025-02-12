@@ -7,168 +7,77 @@
     <title>以太之巅</title>
     <link rel="stylesheet" href="/css/styles.css?v=20250212">
     <link rel="icon" href="https://www.aetheris.top/logo/favicon.ico" type="image/x-icon">
+    <!-- 引入 Prism.js 样式表 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
 </head>
 
 <body>
     <header>
-        <h1>显示代码</h1>
+        <h1>本文阐述如何创建免费静态站点</h1>
     </header>
-
     <div class="container" id="content">
-        <h2>遗传代码：</h2>
+        <h2>本文阐述如何创建免费静态站点</h2>
         <div class="code-box">
             <button class="copy-btn" onclick="copyCode()">复制</button>
-            <pre><code id="code-content">
-			topaetheris.github.io/
-			  ├── .github/
-				  ├── workflows/
-					  └── deploy.yml
-			  ├── index.html
-			  ├── css/
-			  ├── js/
-			  ├── ...
+            <pre><code class="language-bash">
+# 登录 GitHub 后，点击页面右上角的 "+" 号，选择 "New repository"。
+# 在 "Repository name" 中输入你的仓库名称
+# 在 "Description" 中可以输入仓库的描述（可选）。
+# 重要： 在 "Public" 和 "Private" 选项中，选择 "Private"，将仓库设置为私有。
+# 点击 "Create repository" 完成仓库创建。
+# 点击 "Add file" 按钮，选择 "Create new file"。在文件名中输入 "index.html"。
+# 进入仓库的 "Settings" 页面，找到 "Pages" 部分。
+# 在 "Branch" 中选择你的主分支（通常是 main 或 master），然后点击 "Save"。
+# 点击 "Add file" 按钮，选择 "Create new file" 在文件内容区域输入你的 License 文本。你可以选择一个适合你的开源许可证
             </code></pre>
         </div>
 
         <div class="description">
             <h3>代码功能说明：</h3>
             <p>
-                在你的网站下创建.github/文件夹,之后输入以下代码
+                在你的网站下创建 .github/ 文件夹, 之后输入以下代码
             </p>
         </div>
-        <div class="code-box">
-            <button class="copy-btn" onclick="copyCode()">复制</button>
-            <pre><code id="code-content">
-#需要设置一个 CNAME 记录。这个记录将 www 子域名指向你的 GitHub Pages 地址。
-#使用cloudflare托管域名,托管之后把两条cloudflare给的ns记录添加到域名服务器的ns记录那里.把ns记录指向cloudflare进行托管.
-#创建4条A记录,指向github服务器
-185.199.108.153
-185.199.109.153
-185.199.110.153
-185.199.111.153
-#创建一条cname记录,指向你的仓库站点
-#主机名：www（这是你想要使用的子域名）
-#值：topaetheris.github.io
-#（你 GitHub 用户名 + .github.io，例如 topaetheris.github.io）
-#TTL：通常设置为自动或者选择默认值
 
-#安装github desktop指定网站文件夹位置.
-#本地github站点文件夹内创建大写CAME文件无后缀,写入你的网站地址如www.aetheris.top
-
-#去官网下载并安装 Node.js.
-#Node.js提供了JavaScript运行环境，而npm是Node.js的包管理器。
-
-#安装后，打开 命令提示符 或 PowerShell，运行以下命令检查是否安装成功：
-node -v
-npm -v
-#表示你的机器已经具备了 Node.js 环境，可以运行 JavaScript 代码、安装和管理依赖包。
-
-#GitHub Desktop 和 Node.js 为你提供了开发环境，但 npm 需要通过 install 来为每个项目安装依赖包，才能正常打包和使用相关的功能。
-#示例：npm install webpack 会把 webpack 安装到当前项目的 node_modules 文件夹中。安装后的包会被记录在项目根目录下的 package.json 中。
-
-#首先cd到你的项目文件位置.windows下右键打开终端
-#E:\topaetheris.github.io
-npm init -y
-
-#打开 package.json 文件： 在 E:\topaetheris.github.io 目录下，创建或修改一个 package.json 文件。
-
-{
-  "name": "topaetheris.github.io",
-  "version": "1.0.0",
-  "description": "Your website description",
-  "main": "index.js",
-  "scripts": {
-    "start": "webpack serve --mode development --open",
-    "build": "webpack --mode production"
-  },
-  "devDependencies": {
-    "webpack": "^5.0.0",
-    "webpack-cli": "^4.0.0",
-    "webpack-dev-server": "^4.0.0",
-    "html-webpack-plugin": "^5.0.0",
-    "style-loader": "^3.0.0",
-    "css-loader": "^6.0.0",
-    "file-loader": "^6.0.0"
-  }
-}
-
-#在你的E:\topaetheris.github.io\下创建src文件夹,创建index.js
-
-// src/index.js
-import '../css/styles.css';  // 从 css 文件夹引入 styles.css
-
-// 你的现有 JavaScript 代码
-console.log("Welcome to TopAetheris!");
-document.getElementById('app').innerHTML = "Hello from TopAetheris!";
-
-#创建webpack.config.js 构建styles.css 和 index.html 文件。
-
+        <h3>Webpack 配置示例</h3>
+        <pre><code class="language-javascript">
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js', // 入口文件
+  entry: './src/index.js', 
   output: {
-    filename: '[name].[contenthash].js', // 生成带有哈希值的输出文件名
-    path: path.resolve(__dirname, 'dist'), // 输出文件夹
+    filename: '[name].[contenthash].js',
+    path: path.resolve(__dirname, 'dist'),
   },
   module: {
     rules: [
       {
-        test: /\.css$/, // 处理 CSS 文件
-        use: ['style-loader', 'css-loader'], // 使用 style-loader 和 css-loader
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.(jpg|png|gif|svg)$/, // 处理图片文件
+        test: /\.(jpg|png|gif|svg)$/,
         use: ['file-loader'],
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './index.html', // 使用你的 HTML 模板文件
+      template: './index.html',
     }),
   ],
-  mode: 'production', // 设置为生产模式
+  mode: 'production',
 };
+        </code></pre>
 
-#在你的E:\topaetheris.github.io\下npm运行安装命令安装所有依赖项，包括 Webpack 等。
-npm install
-
-#以后更新站点只需要打包,然后再通过 GitHub Desktop 推送到你的 GitHub 仓库，就可以更新网站缓存
-#运行构建命令
-npx webpack --mode production
-
-            </code></pre>
-        </div>
-
-        <div class="description">
-            <h3>代码功能说明：</h3>
-            <p>
-                在你的网站下创建.github/文件夹,之后输入以下代码
-            </p>
-        </div>
+        <h2>安装依赖项并构建项目</h2>
+        <pre><code class="language-bash">npm install</code></pre>
+        <p># 安装完所有依赖后，使用以下命令构建项目：</p>
+        <pre><code class="language-bash">npx webpack --mode production</code></pre>
     </div>
 
-    <script>
-        // 复制代码到剪贴板
-        function copyCode() {
-            const codeContent = document.getElementById('code-content');
-            const range = document.createRange();
-            range.selectNode(codeContent);
-            window.getSelection().removeAllRanges();
-            window.getSelection().addRange(range);
-
-            try {
-                document.execCommand('copy');
-                alert('代码已复制！');
-            } catch (err) {
-                alert('复制失败！');
-            }
-
-            window.getSelection().removeAllRanges();
-        }
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
 </body>
 
 </html>
