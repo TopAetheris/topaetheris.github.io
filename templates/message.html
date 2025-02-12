@@ -6,6 +6,7 @@
     <title>显示代码页面</title>
     <link rel="stylesheet" href="/css/styles.css?v=20250212">
     <style>
+        /* 样式保持不变 */
         .overlay {
             position: fixed;
             top: 0;
@@ -68,18 +69,21 @@
     </div>
 
     <script>
+        // 禁止右键点击
         document.addEventListener('contextmenu', function(e) {
             e.preventDefault();
             alert('右键菜单被禁用！');
         });
 
+        // 禁止 F12 键（开发者工具）
         document.addEventListener('keydown', function(e) {
-            if (e.keyCode === 123) {
+            if (e.keyCode === 123) {  // F12的keyCode是123
                 e.preventDefault();
                 alert('F12被禁用！');
             }
         });
 
+        // 复制代码到剪贴板
         function copyCode() {
             const codeContent = document.getElementById('code-content');
             const range = document.createRange();
@@ -97,29 +101,47 @@
             window.getSelection().removeAllRanges();
         }
 
+        // 混淆密码验证，使用Base64编码
         function decodeBase64(encoded) {
             return atob(encoded);
         }
 
-        const encodedPassword = 'MTIz';
+        const encodedPassword = 'MTIz'; // 密码 "123" 的 Base64 编码
 
+        // 检查是否已保存过密码验证状态
+        function checkPasswordStatus() {
+            const isPasswordVerified = localStorage.getItem('passwordVerified');
+            if (isPasswordVerified === 'true') {
+                // 如果密码验证通过，直接显示内容区域
+                document.getElementById('overlay').style.display = 'none';
+                document.getElementById('content').style.display = 'block';
+            }
+        }
+
+        // 用户输入密码并验证
         function checkPassword() {
             let userPassword = document.getElementById('passwordInput').value;
             if (decodeBase64(encodedPassword) === userPassword) {
+                // 密码正确，保存验证状态
+                localStorage.setItem('passwordVerified', 'true');
                 alert('密码正确，欢迎访问！');
                 document.getElementById('overlay').style.display = 'none';
                 document.getElementById('content').style.display = 'block';
             } else {
                 alert('密码错误！');
-                document.getElementById('passwordInput').value = '';
+                document.getElementById('passwordInput').value = '';  // 清空输入框
             }
         }
 
+        // 监听回车事件提交密码
         function handleEnter(event) {
             if (event.key === 'Enter') {
                 checkPassword();
             }
         }
+
+        // 页面加载时检查密码验证状态
+        window.onload = checkPasswordStatus;
     </script>
 </body>
 </html>
