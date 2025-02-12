@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>显示代码页面</title>
-    <!-- 引入外部CSS样式 (相对路径) -->
-    <link rel="stylesheet" href="/css/styles.css">
+    <!-- 引入外部CSS样式 (相对路径)，加上时间戳避免缓存 -->
+    <link rel="stylesheet" href="/css/styles.css?v=20250212"> <!-- 你可以使用当前的日期或者版本号 -->
 </head>
 <body>
     <header>
@@ -13,7 +13,7 @@
     </header>
     
     <div class="container">
-	    <!-- 消息块分隔 -->
+        <!-- 消息块分隔 -->
         <h2>遗传代码：</h2>
         <div class="code-box">
             <!-- 复制按钮 -->
@@ -45,7 +45,8 @@
             <p>
                 这段代码演示了如何结合前端技术来实现简单的安全控制和用户体验优化。
             </p>
-	    <!-- 消息块分隔 -->
+        </div>
+        <!-- 消息块分隔 -->
         <h2>遗传代码：</h2>
         <div class="code-box">
             <!-- 复制按钮 -->
