@@ -31,20 +31,14 @@
         .grid a {
             display: block;
             padding: 15px;
-            background: #007bff;
+            background: #ff8c42; /* 所有按钮改为橙色 */
             color: white;
             text-decoration: none;
             border-radius: 5px;
             transition: background 0.3s;
         }
         .grid a:hover {
-            background: #0056b3;
-        }
-        .grid a[href="#"]:nth-child(2) { /* 技术文档按钮 */
-            background: #ff8c42; /* 橙色 */
-        }
-        .grid a[href="#"]:nth-child(2):hover {
-            background: #e67300; /* 深橙色 */
+            background: #e67300; /* 悬停时深橙色 */
         }
         .articles, .links {
             margin-top: 40px;
@@ -62,17 +56,29 @@
             grid-template-columns: repeat(4, 1fr); /* 每4个按钮一排 */
             gap: 15px;
         }
-        .article-list a, .link-list a {
+        .article-list a {
             display: block;
             padding: 10px;
-            background: #28a745;
+            background: #007bff; /* 技术文章按钮改为蓝色 */
             color: white;
             text-decoration: none;
             border-radius: 5px;
             transition: background 0.3s;
         }
-        .article-list a:hover, .link-list a:hover {
-            background: #1e7e34;
+        .article-list a:hover {
+            background: #0056b3; /* 悬停时深蓝色 */
+        }
+        .link-list a {
+            display: block;
+            padding: 10px;
+            background: #28a745; /* 常用工具按钮保持绿色 */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .link-list a:hover {
+            background: #1e7e34; /* 悬停时深绿色 */
         }
     </style>
 </head>
