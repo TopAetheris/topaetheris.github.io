@@ -39,37 +39,106 @@
         <div class="code-box">
             <button class="copy-btn" onclick="copyCode()">复制</button>
             <pre><code id="code-content">
-			name: Deploy to GitHub Pages
+#需要设置一个 CNAME 记录。这个记录将 www 子域名指向你的 GitHub Pages 地址。
+#使用cloudflare托管域名,托管之后把两条cloudflare给的ns记录添加到域名服务器的ns记录那里.把ns记录指向cloudflare进行托管.
+#创建4条A记录,指向github服务器
+185.199.108.153
+185.199.109.153
+185.199.110.153
+185.199.111.153
+#创建一条cname记录,指向你的仓库站点
+#主机名：www（这是你想要使用的子域名）
+#值：topaetheris.github.io
+#（你 GitHub 用户名 + .github.io，例如 topaetheris.github.io）
+#TTL：通常设置为自动或者选择默认值
 
-			on:
-			  push:
-				branches:
-				  - main
+#安装github desktop指定网站文件夹位置.
+#本地github站点文件夹内创建大写CAME文件无后缀,写入你的网站地址如www.aetheris.top
 
-			jobs:
-			  build:
-				runs-on: ubuntu-latest
+#去官网下载并安装 Node.js.
+#Node.js提供了JavaScript运行环境，而npm是Node.js的包管理器。
 
-				steps:
-				  - name: Checkout code
-					uses: actions/checkout@v2
+#安装后，打开 命令提示符 或 PowerShell，运行以下命令检查是否安装成功：
+node -v
+npm -v
+#表示你的机器已经具备了 Node.js 环境，可以运行 JavaScript 代码、安装和管理依赖包。
 
-				  - name: Set up Node.js
-					uses: actions/setup-node@v2
-					with:
-					  node-version: '14'
+#GitHub Desktop 和 Node.js 为你提供了开发环境，但 npm 需要通过 install 来为每个项目安装依赖包，才能正常打包和使用相关的功能。
+#示例：npm install webpack 会把 webpack 安装到当前项目的 node_modules 文件夹中。安装后的包会被记录在项目根目录下的 package.json 中。
 
-				  - name: Install dependencies
-					run: npm install
+#首先cd到你的项目文件位置.windows下右键打开终端
+#E:\topaetheris.github.io
+npm init -y
 
-				  - name: Build the project
-					run: npm run build
+#打开 package.json 文件： 在 E:\topaetheris.github.io 目录下，创建或修改一个 package.json 文件。
 
-				  - name: Deploy to GitHub Pages
-					uses: JamesIves/github-pages-deploy-action@v4
-					with:
-					  branch: gh-pages
-					  folder: dist
+{
+  "name": "topaetheris.github.io",
+  "version": "1.0.0",
+  "description": "Your website description",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack serve --mode development --open",
+    "build": "webpack --mode production"
+  },
+  "devDependencies": {
+    "webpack": "^5.0.0",
+    "webpack-cli": "^4.0.0",
+    "webpack-dev-server": "^4.0.0",
+    "html-webpack-plugin": "^5.0.0",
+    "style-loader": "^3.0.0",
+    "css-loader": "^6.0.0",
+    "file-loader": "^6.0.0"
+  }
+}
+
+#在你的E:\topaetheris.github.io\下创建src文件夹,创建index.js
+
+// src/index.js
+import '../css/styles.css';  // 从 css 文件夹引入 styles.css
+
+// 你的现有 JavaScript 代码
+console.log("Welcome to TopAetheris!");
+document.getElementById('app').innerHTML = "Hello from TopAetheris!";
+
+#创建webpack.config.js 构建styles.css 和 index.html 文件。
+
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+  entry: './src/index.js', // 入口文件
+  output: {
+    filename: '[name].[contenthash].js', // 生成带有哈希值的输出文件名
+    path: path.resolve(__dirname, 'dist'), // 输出文件夹
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/, // 处理 CSS 文件
+        use: ['style-loader', 'css-loader'], // 使用 style-loader 和 css-loader
+      },
+      {
+        test: /\.(jpg|png|gif|svg)$/, // 处理图片文件
+        use: ['file-loader'],
+      },
+    ],
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './index.html', // 使用你的 HTML 模板文件
+    }),
+  ],
+  mode: 'production', // 设置为生产模式
+};
+
+#在你的E:\topaetheris.github.io\下npm运行安装命令安装所有依赖项，包括 Webpack 等。
+npm install
+
+#以后更新站点只需要打包,然后再通过 GitHub Desktop 推送到你的 GitHub 仓库，就可以更新网站缓存
+#运行构建命令
+npx webpack --mode production
+
             </code></pre>
         </div>
 
