@@ -29,7 +29,7 @@
 
         .container {
             margin: 0 auto;
-            max-width: 1200px; /* 设置最大宽度 */
+            max-width: 1200px;
             padding: 20px;
         }
 
@@ -39,12 +39,11 @@
             padding: 20px;
             border-radius: 8px;
             margin-top: 20px;
-            overflow-x: auto; /* 允许水平滚动 */
+            overflow-x: auto;
             width: 100%;
             box-sizing: border-box;
         }
 
-        /* 修正按钮位置 */
         .copy-btn {
             position: absolute;
             top: 10px;
@@ -66,16 +65,15 @@
             background-color: #2d2d2d;
             border-radius: 8px;
             padding: 20px;
-            white-space: pre-wrap;       /* 自动换行 */
-            word-wrap: break-word;       /* 自动换行 */
-            overflow-wrap: break-word;   /* 防止过长的单词溢出 */
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .description {
             margin-top: 20px;
         }
 
-        /* 置顶按钮样式 */
         .top-button {
             position: fixed;
             bottom: 20px;
@@ -94,7 +92,6 @@
             background-color: #e53935;
         }
 
-        /* 当滚动到一定距离显示置顶按钮 */
         window.onscroll = function() {
             if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
                 document.querySelector('.top-button').style.display = 'block';
@@ -133,6 +130,11 @@
                 在你的网站下创建 .github/ 文件夹, 之后输入以下代码
             </p>
         </div>
+        
+        <div class="bottom-buttons">
+            <!-- 正确的返回主页链接 -->
+            <a href="/index.html"><button>返回主页</button></a>
+        </div>
     </div>
 
     <!-- 置顶按钮 -->
@@ -141,26 +143,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
     <script>
         function copyCode() {
-            // 获取代码内容
             const code = document.querySelector('pre code').textContent;
-
-            // 创建一个临时 textarea 元素
             const textarea = document.createElement('textarea');
             textarea.value = code;
             document.body.appendChild(textarea);
-
-            // 选中代码并复制
             textarea.select();
             document.execCommand('copy');
-
-            // 删除临时元素
             document.body.removeChild(textarea);
-
-            // 提示用户复制成功
             alert('代码已复制到剪贴板!');
         }
 
-        // 置顶功能
         function scrollToTop() {
             window.scrollTo({
                 top: 0,
