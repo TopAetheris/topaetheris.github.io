@@ -1,6 +1,5 @@
 // src/index.js
 import '../css/styles.css';  // 从 css 文件夹引入 styles.css
 
-// 你的现有 JavaScript 代码
-console.log("Welcome to TopAetheris!");
-document.getElementById('app').innerHTML = "Hello from TopAetheris!";
+// 引入 CSS 文件和输出控制台信息
+console.log("Welcome to Aetheris.Top!");
