@@ -131,12 +131,19 @@
         .collapsed {
             margin-top: 20px;
         }
+        /* 确保图片自适应 */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block; /* 避免图片下方出现空白间隙 */
+        }
+		
     </style>
 </head>
 <body>
     <div class="container">
         <h1>以太之巅欢迎你</h1>
-		<img src="home.webp" alt="Home Image" width="800" height="600">
+		<img src="home.webp" alt="Home Image">
 
 
         <!-- 加密页面测试 -->
