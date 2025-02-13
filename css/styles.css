@@ -1,175 +1,118 @@
-/* 样式统一文件 */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-@font-face {
-    font-family: 'YeZiGongChangZhuRiHanLiTi-2';
-    src: url('YeZiGongChangZhuRiHanLiTi-2.ttf') format('truetype');
-}
+		/* 样式统一文件 */
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		@font-face {
+			font-family: 'lishu';
+			src: url('lishu.ttf') format('truetype');
+		}
 
-/* 统一设置标题字体 */
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'YeZiGongChangZhuRiHanLiTi-2', sans-serif;
-}
+		/* 统一设置标题字体 */
+		h1, h2, h3, h4, h5, h6 {
+			font-family: 'lishu', sans-serif;
+		}
 
-/* 设置站点正文的字体为隶书 */
-body {
-    font-family: 'Microsoft LiHei', 'Heiti SC', sans-serif;
-}
+		/* 设置站点正文的字体为隶书 */
+		body {
+			font-family: 'Microsoft LiHei', 'Heiti SC', sans-serif;
+		}
 
-/* 设置英文部分使用代码风格的字体 */
-body, code {
-    font-family: 'Courier New', Consolas, 'Monaco', monospace;
-}
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    line-height: 1.6;
-}
+		/* 设置英文部分使用代码风格的字体 */
+		body, code {
+			font-family: 'Courier New', Consolas, 'Monaco', monospace;
+		}
 
-header {
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    font-size: 2rem; /* 更灵活的字体大小 */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 增加阴影使其更具立体感 */
-}
 
-.container {
-    margin: 20px auto;
-    padding: 0 15px;
-    max-width: 1200px;
-    width: 100%;
-}
 
-.code-box {
-    background-color: #272822;
-    color: #f8f8f2;
-    padding: 20px;
-    border-radius: 10px;
-    overflow-x: auto;
-    font-family: 'Courier New', Courier, monospace;
-    position: relative;
-    word-wrap: break-word; /* 防止内容溢出 */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 增加阴影，使代码框更有层次感 */
-}
 
-.copy-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
+		@media (max-width: 1024px) {
+			header {
+				font-size: 1.5rem;
+				padding: 15px;
+			}
 
-.copy-btn:hover {
-    background-color: #45a049;
-    transform: scale(1.05); /* 鼠标悬停时按钮轻微放大 */
-}
+			.container {
+				margin: 10px;
+				padding: 10px;
+			}
 
-.description {
-    margin-top: 20px;
-    font-size: 1.125rem; /* 更灵活的字体大小 */
-    color: #555;
-    line-height: 1.8;
-}
+			.code-box {
+				padding: 15px;
+			}
 
-@media (max-width: 1024px) {
-    header {
-        font-size: 1.5rem;
-        padding: 15px;
-    }
+			.copy-btn {
+				padding: 8px 16px;
+				font-size: 12px;
+			}
 
-    .container {
-        margin: 10px;
-        padding: 10px;
-    }
+			.description {
+				font-size: 1rem;
+			}
+		}
 
-    .code-box {
-        padding: 15px;
-    }
+		@media (max-width: 768px) {
+			header {
+				font-size: 1.25rem;
+				padding: 15px 10px;
+			}
 
-    .copy-btn {
-        padding: 8px 16px;
-        font-size: 12px;
-    }
+			.container {
+				margin: 10px;
+				padding: 5px;
+			}
 
-    .description {
-        font-size: 1rem;
-    }
-}
+			.code-box {
+				padding: 15px;
+			}
 
-@media (max-width: 768px) {
-    header {
-        font-size: 1.25rem;
-        padding: 15px 10px;
-    }
+			.copy-btn {
+				padding: 8px 14px;
+				font-size: 12px;
+			}
 
-    .container {
-        margin: 10px;
-        padding: 5px;
-    }
+			.description {
+				font-size: 0.9rem;
+			}
+		}
 
-    .code-box {
-        padding: 15px;
-    }
+		@media (max-width: 480px) {
+			header {
+				font-size: 1rem;
+				padding: 12px 10px;
+			}
 
-    .copy-btn {
-        padding: 8px 14px;
-        font-size: 12px;
-    }
+			.container {
+				margin: 5px;
+				padding: 5px;
+			}
 
-    .description {
-        font-size: 0.9rem;
-    }
-}
+			.code-box {
+				padding: 10px;
+			}
 
-@media (max-width: 480px) {
-    header {
-        font-size: 1rem;
-        padding: 12px 10px;
-    }
+			.copy-btn {
+				padding: 6px 12px;
+				font-size: 10px;
+			}
 
-    .container {
-        margin: 5px;
-        padding: 5px;
-    }
+			.description {
+				font-size: 0.875rem;
+			}
+		}
 
-    .code-box {
-        padding: 10px;
-    }
+		/* 超宽屏优化 */
+		@media (min-width: 1600px) {
+			.container {
+				max-width: 1400px; /* 超宽屏时扩展容器宽度 */
+			}
 
-    .copy-btn {
-        padding: 6px 12px;
-        font-size: 10px;
-    }
+			header {
+				font-size: 2.5rem; /* 更大字号适应宽屏 */
+			}
 
-    .description {
-        font-size: 0.875rem;
-    }
-}
-
-/* 超宽屏优化 */
-@media (min-width: 1600px) {
-    .container {
-        max-width: 1400px; /* 超宽屏时扩展容器宽度 */
-    }
-
-    header {
-        font-size: 2.5rem; /* 更大字号适应宽屏 */
-    }
-
-    .code-box {
-        font-size: 1.1rem; /* 稍微增大代码框字体 */
-    }
-}
+			.code-box {
+				font-size: 1.1rem; /* 稍微增大代码框字体 */
+			}
+		}

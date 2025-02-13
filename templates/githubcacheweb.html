@@ -16,16 +16,8 @@
             background-color: #121212;
             color: #ffffff;
             font-family: Arial, sans-serif;
-        }
-
-        header {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 24px;
-        }
-
-        h2, h3 {
-            color: #f0f0f0;
+            margin: 0;
+            padding: 0;
         }
 
         .container {
@@ -33,6 +25,20 @@
             max-width: 1200px;
             padding: 20px;
         }
+
+        /* 标题居中 */
+        header h1 {
+
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+		header {
+			padding-top: 20px;  /* 给header顶部加上内边距 */
+			margin-top: 20px;   /* 给header顶部加上外边距 */
+			text-align: center; /* 可选，居中显示标题 */
+		}
 
         .code-box {
             position: relative;
@@ -121,7 +127,6 @@
                 document.querySelector('.top-button').style.display = 'none';
             }
         };
-
     </style>
 </head>
 
@@ -130,8 +135,7 @@
         <h1>创建免费静态站点</h1>
     </header>
     <div class="container" id="content">
-
-	<!-- 代码框code-1复制code-1 -->
+        <!-- 代码框 -->
         <div class="code-box">
             <button class="copy-btn" data-target="code-1" onclick="copyCode(this)">复制</button>
             <pre><code id="code-1" class="language-bash">
@@ -146,14 +150,14 @@
 # 点击 "Add file" 按钮，选择 "Create new file" 在文件内容区域输入你的 License 文本。你可以选择一个适合你的开源许可证
             </code></pre>
         </div>
-	<!-- 代码框code-1复制code-1 -->
+
         <div class="description">
             <h3>代码功能说明：</h3>
-            <p>
-                在你的网站下创建 .github/ 文件夹, 之后输入以下代码
-            </p>
+            <p>在你的网站下创建 .github/ 文件夹, 之后输入以下代码。</p>
         </div>
+
         <h2>本文阐述如何创建免费静态站点</h2>
+
         <div class="bottom-buttons">
             <!-- 返回主页按钮 -->
             <a href="/topaetheris.github.io/index.html">
