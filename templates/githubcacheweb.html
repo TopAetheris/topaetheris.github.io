@@ -126,13 +126,14 @@
 
 <body>
     <header>
-        <h1>本文阐述如何创建免费静态站点</h1>
+        <h1>创建免费静态站点</h1>
     </header>
     <div class="container" id="content">
-        <h2>本文阐述如何创建免费静态站点</h2>
+
+	<!-- 代码框code-1复制code-1 -->
         <div class="code-box">
-            <button class="copy-btn" onclick="copyCode()">复制</button>
-            <pre><code class="language-bash">
+            <button class="copy-btn" data-target="code-1" onclick="copyCode(this)">复制</button>
+            <pre><code id="code-1" class="language-bash">
 # 登录 GitHub 后，点击页面右上角的 "+" 号，选择 "New repository"。
 # 在 "Repository name" 中输入你的仓库名称
 # 在 "Description" 中可以输入仓库的描述（可选）。
@@ -144,16 +145,16 @@
 # 点击 "Add file" 按钮，选择 "Create new file" 在文件内容区域输入你的 License 文本。你可以选择一个适合你的开源许可证
             </code></pre>
         </div>
-
+	<!-- 代码框code-1复制code-1 -->
         <div class="description">
             <h3>代码功能说明：</h3>
             <p>
                 在你的网站下创建 .github/ 文件夹, 之后输入以下代码
             </p>
         </div>
-
+        <h2>本文阐述如何创建免费静态站点</h2>
         <div class="bottom-buttons">
-            <!-- 返回主页按钮，放在文章底部 -->
+            <!-- 返回主页按钮 -->
             <a href="/topaetheris.github.io/index.html">
                 <button class="back-btn">返回主页</button>
             </a>
@@ -165,8 +166,9 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
     <script>
-        function copyCode() {
-            const code = document.querySelector('pre code').textContent;
+        function copyCode(button) {
+            const targetCodeId = button.getAttribute('data-target'); // 获取data-target值
+            const code = document.getElementById(targetCodeId).textContent; // 获取对应代码块的内容
             const textarea = document.createElement('textarea');
             textarea.value = code;
             document.body.appendChild(textarea);

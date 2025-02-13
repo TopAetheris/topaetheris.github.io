@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css?v=20250212">
+    <link rel="icon" href="https://www.aetheris.top/logo/favicon.ico" type="image/x-icon">
+    <!-- 引入 Prism.js 样式表 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+    <title>AES 加密与解密 (支持AES-256)</title>
+</head>
+<body>
+    <h1>AES 加密与解密 (AES-256)</h1>
+    
+    <div>
+        <label for="key">密钥 (32字节，256位): </label>
+        <input type="text" id="key" value="12345678901234561234567890123456" maxlength="32">
+    </div>
+    
+    <div>
+        <label for="input">输入文本: </label>
+        <textarea id="input" rows="4" cols="50"></textarea>
+    </div>
+
+    <div>
+        <button onclick="encryptData()">加密</button>
+        <button onclick="decryptData()">解密</button>
+    </div>
+
+    <h3>结果：</h3>
+    <div>
+        <label for="output">输出: </label>
+        <textarea id="output" rows="4" cols="50" readonly></textarea>
+    </div>
+
+    <script>
+        // AES加密函数
+        async function encryptData() {
+            const keyText = document.getElementById('key').value;
+            const inputText = document.getElementById('input').value;
+            
+            // 将密钥转换为 32 字节的 Uint8Array
+            const key = await getKey(keyText);
+            
+            // 使用AES-GCM加密
+            const iv = crypto.getRandomValues(new Uint8Array(12));  // 初始化向量（IV）
+            const encryptedData = await crypto.subtle.encrypt(
+                { name: "AES-GCM", iv: iv },
+                key,
+                new TextEncoder().encode(inputText)
+            );
+
+            // 将加密数据和IV一起保存（IV 必须与加密数据一起存储）
+            const encryptedArray = new Uint8Array(encryptedData);
+            const result = new Uint8Array(iv.length + encryptedArray.length);
+            result.set(iv);
+            result.set(encryptedArray, iv.length);
+
+            // 显示加密后的数据
+            document.getElementById('output').value = arrayBufferToBase64(result);
+        }
+
+        // AES解密函数
+        async function decryptData() {
+            const keyText = document.getElementById('key').value;
+            const encryptedText = document.getElementById('output').value;
+            
+            // 将密钥转换为 32 字节的 Uint8Array
+            const key = await getKey(keyText);
+            
+            // 将base64编码的密文转换为Uint8Array
+            const encryptedArray = base64ToArrayBuffer(encryptedText);
+
+            // 分离出 IV 和 密文
+            const iv = encryptedArray.slice(0, 12);  // 前 12 字节是IV
+            const ciphertext = encryptedArray.slice(12); // 后面的部分是加密数据
+
+            try {
+                // 使用 AES-GCM 解密
+                const decryptedData = await crypto.subtle.decrypt(
+                    { name: "AES-GCM", iv: iv },
+                    key,
+                    ciphertext
+                );
+
+                // 将解密后的数据转换为字符串
+                document.getElementById('output').value = new TextDecoder().decode(decryptedData);
+            } catch (error) {
+                alert('解密失败！');
+            }
+        }
+
+        // 将 base64 编码转换为 Uint8Array
+        function base64ToArrayBuffer(base64) {
+            const binaryString = atob(base64);
+            const len = binaryString.length;
+            const bytes = new Uint8Array(len);
+            for (let i = 0; i < len; i++) {
+                bytes[i] = binaryString.charCodeAt(i);
+            }
+            return bytes;
+        }
+
+        // 将 ArrayBuffer 转换为 base64 编码
+        function arrayBufferToBase64(buffer) {
+            const binary = String.fromCharCode.apply(null, new Uint8Array(buffer));
+            return btoa(binary);
+        }
+
+        // 将密钥文本转为 CryptoKey 对象
+        async function getKey(keyText) {
+            const keyData = new TextEncoder().encode(keyText);
+            return await crypto.subtle.importKey(
+                "raw",
+                keyData,
+                { name: "AES-GCM" },
+                false,
+                ["encrypt", "decrypt"]
+            );
+        }
+    </script>
+</body>
+</html>
