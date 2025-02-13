@@ -4,26 +4,24 @@
 			padding: 0;
 			box-sizing: border-box;
 		}
+		/* 引入 Google Fonts 的 Roboto 字体 */
+		@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+		/* 引入隶书字体 */
 		@font-face {
-			font-family: 'lishu';
-			src: url('lishu.ttf') format('truetype');
+		  font-family: 'lishu';
+		  src: url('lishu.ttf') format('truetype');
 		}
 
-		/* 统一设置标题字体 */
+		/* 统一设置标题字体为隶书 */
 		h1, h2, h3, h4, h5, h6 {
-			font-family: 'lishu', sans-serif;
+		  font-family: 'lishu', sans-serif;
 		}
 
-		/* 设置站点正文的字体为隶书 */
-		body {
-			font-family: 'Microsoft LiHei', 'Heiti SC', sans-serif;
+		/* 设置站点正文、段落、链接、代码等内容的字体为 Roboto */
+		body, p, span, div, a, code {
+		  font-family: 'Roboto', sans-serif;
 		}
-
-		/* 设置英文部分使用代码风格的字体 */
-		body, code {
-			font-family: 'Courier New', Consolas, 'Monaco', monospace;
-		}
-
 
 
 
