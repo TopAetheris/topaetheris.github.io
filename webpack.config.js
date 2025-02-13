@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin'); // 引入 CleanWebpackPlugin
 
 module.exports = {
   entry: './src/index.js', // 入口文件
@@ -20,6 +21,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new CleanWebpackPlugin(), // 在每次构建前清理输出目录
     new HtmlWebpackPlugin({
       template: './index.html', // 使用你的 HTML 模板文件
     }),
