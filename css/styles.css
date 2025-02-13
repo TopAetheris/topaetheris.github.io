@@ -6,7 +6,7 @@
 }
 @font-face {
   font-family: 'Zihunjianqishoushu';
-  src: url('fonts/zihunjianqishoushu.ttf') format('truetype');
+  src: url('../fonts/zihunjianqishoushu.ttf') format('truetype');
 }
 
 h1 {
