@@ -9,9 +9,16 @@
     src: url('zihunjianqishoushu.ttf') format('truetype');
 }
 
-h1 {
+/* 统一设置标题字体 */
+h1, h2, h3, h4, h5, h6 {
     font-family: 'Zihunjianqishoushu', sans-serif;
 }
+
+/* 设置站点正文的字体为黑体，Microsoft YaHei 为微软的黑体字体 */
+body {
+    font-family: 'Microsoft YaHei', 'Heiti SC', '黑体', sans-serif;
+}
+
 
 body {
     font-family: 'Arial', sans-serif;
