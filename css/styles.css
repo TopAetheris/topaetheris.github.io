@@ -5,13 +5,13 @@
     box-sizing: border-box;
 }
 @font-face {
-    font-family: 'Zihunjianqishoushu';
+    font-family: 'YeZiGongChangZhuRiHanLiTi-2';
     src: url('YeZiGongChangZhuRiHanLiTi-2.ttf') format('truetype');
 }
 
 /* 统一设置标题字体 */
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'YeZiGongChangZhuRiHanLiTi-2.ttf', sans-serif;
+    font-family: 'YeZiGongChangZhuRiHanLiTi-2', sans-serif;
 }
 
 /* 设置站点正文的字体为隶书 */
