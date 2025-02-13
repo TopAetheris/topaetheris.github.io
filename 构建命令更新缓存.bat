@@ -1,3 +1,3 @@
 @echo off
-npx webpack --mode production
+npx webpack --config webpack.config.js --mode production
 exit
