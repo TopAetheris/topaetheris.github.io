@@ -5,10 +5,113 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>以太之巅</title>
-    <link rel="stylesheet" href="../css/styles.css?v=20250212">
+
     <link rel="icon" href="https://www.aetheris.top/logo/favicon.ico" type="image/x-icon">
 </head>
     <style>
+		/* 基本页面样式 */
+		body {
+			background-color: #121212;
+			color: #ffffff;
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+
+		/* 容器样式 */
+		.container {
+			margin: 0 auto;
+			max-width: 1200px;
+			padding: 20px;
+		}
+
+		/* 标题样式 */
+		header {
+			padding-top: 20px;
+			margin-top: 20px;
+			text-align: center;
+		}
+
+		header h1 {
+			font-size: 36px;
+			margin-bottom: 20px;
+			color: #ffffff;
+		}
+
+		/* 代码框样式 */
+		.code-box {
+			position: relative;
+			background-color: #1e1e1e;
+			padding: 20px;
+			border-radius: 8px;
+			margin-top: 20px;
+			overflow-x: auto;
+			width: 100%;
+			box-sizing: border-box;
+		}
+
+		/* 统一按钮样式 */
+		button,
+		.copy-btn,
+		.back-btn,
+		.bottom-buttons button,
+		.overlay button {
+			background-color: #444;
+			color: white;
+			border: none;
+			padding: 6px 12px;
+			cursor: pointer;
+			border-radius: 4px;
+			font-size: 14px;
+			display: inline-block;
+		}
+
+		button:hover,
+		.copy-btn:hover,
+		.back-btn:hover,
+		.bottom-buttons button:hover,
+		.overlay button:hover {
+			background-color: #333;
+		}
+
+		/* 其他按钮样式 */
+		.top-button {
+			position: fixed;
+			bottom: 20px;
+			right: 20px;
+			background-color: #f44336;
+			color: white;
+			padding: 10px 20px;
+			border-radius: 50%;
+			font-size: 24px;
+			display: none;
+		}
+
+		.top-button:hover {
+			background-color: #e53935;
+		}
+
+		/* 预设框样式 */
+		pre {
+			background-color: #2d2d2d;
+			border-radius: 8px;
+			padding: 20px;
+			white-space: pre-wrap;
+			word-wrap: break-word;
+			overflow-wrap: break-word;
+		}
+
+		/* 说明文本 */
+		.description {
+			margin-top: 20px;
+		}
+
+		/* 底部按钮 */
+		.bottom-buttons {
+			margin-top: 20px;
+			text-align: center;
+		}
+
 		/* 遮罩层样式 */
 		.overlay {
 			position: fixed;
@@ -26,23 +129,21 @@
 			text-align: center;
 			padding: 10px;
 		}
+
 		.overlay button {
-			padding: 12px 20px;
-			font-size: 16px;
-			border: none;
-			background-color: #4CAF50;
-			color: white;
-			border-radius: 5px;
-			cursor: pointer;
 			width: 100%;
 			max-width: 320px;
+			padding: 12px 20px;
+			font-size: 16px;
+			border-radius: 5px;
 			transition: background-color 0.3s ease;
 		}
 
 		.overlay button:hover {
 			background-color: #45a049;
 		}
-		/* 密码输入框美化 */
+
+		/* 密码输入框样式 */
 		#passwordInput {
 			width: 100%;
 			max-width: 320px;
@@ -53,16 +154,111 @@
 			outline: none;
 			transition: border-color 0.3s ease, box-shadow 0.3s ease;
 			text-align: center;
-			margin-bottom: 15px; /* 增加输入框与按钮之间的间距 */
+			margin-bottom: 15px;
 		}
 
-		/* 输入框获得焦点时的样式 */
 		#passwordInput:focus {
 			border-color: #4CAF50;
 			box-shadow: 0 0 8px rgba(76, 175, 80, 0.6);
 		}
 
-		
+		/* 滚动时显示置顶按钮 */
+		window.onscroll = function() {
+			if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+				document.querySelector('.top-button').style.display = 'block';
+			} else {
+				document.querySelector('.top-button').style.display = 'none';
+			}
+		};
+		@media (max-width: 1024px) {
+			header {
+				font-size: 1.5rem;
+				padding: 15px;
+			}
+
+			.container {
+				margin: 10px;
+				padding: 10px;
+			}
+
+			.code-box {
+				padding: 15px;
+			}
+
+			.copy-btn {
+				padding: 8px 16px;
+				font-size: 12px;
+			}
+
+			.description {
+				font-size: 1rem;
+			}
+		}
+
+		@media (max-width: 768px) {
+			header {
+				font-size: 1.25rem;
+				padding: 15px 10px;
+			}
+
+			.container {
+				margin: 10px;
+				padding: 5px;
+			}
+
+			.code-box {
+				padding: 15px;
+			}
+
+			.copy-btn {
+				padding: 8px 14px;
+				font-size: 12px;
+			}
+
+			.description {
+				font-size: 0.9rem;
+			}
+		}
+
+		@media (max-width: 480px) {
+			header {
+				font-size: 1rem;
+				padding: 12px 10px;
+			}
+
+			.container {
+				margin: 5px;
+				padding: 5px;
+			}
+
+			.code-box {
+				padding: 10px;
+			}
+
+			.copy-btn {
+				padding: 6px 12px;
+				font-size: 10px;
+			}
+
+			.description {
+				font-size: 0.875rem;
+			}
+		}
+
+		/* 超宽屏优化 */
+		@media (min-width: 1600px) {
+			.container {
+				max-width: 1400px; /* 超宽屏时扩展容器宽度 */
+			}
+
+			header {
+				font-size: 2.5rem; /* 更大字号适应宽屏 */
+			}
+
+			.code-box {
+				font-size: 1.1rem; /* 稍微增大代码框字体 */
+			}
+		}
     </style>
 <body>
     <div class="overlay" id="overlay">

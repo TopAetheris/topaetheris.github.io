@@ -114,3 +114,123 @@
 				font-size: 1.1rem; /* 稍微增大代码框字体 */
 			}
 		}
+        /* 设置页面背景为黑色 */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000; /* 更深的背景色 */
+            color: #f0f0f0; /* 明亮的文字 */
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            background: #121212;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+        }
+
+        /* 标题居中 */
+        header h1 {
+
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+		header {
+			padding-top: 20px;  /* 给header顶部加上内边距 */
+			margin-top: 20px;   /* 给header顶部加上外边距 */
+			text-align: center; /* 可选，居中显示标题 */
+		}
+
+        .code-box {
+            position: relative;
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            overflow-x: auto;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .copy-btn,
+        .back-btn {
+            background-color: #444;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .copy-btn:hover,
+        .back-btn:hover {
+            background-color: #333;
+        }
+
+        pre {
+            background-color: #2d2d2d;
+            border-radius: 8px;
+            padding: 20px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .description {
+            margin-top: 20px;
+        }
+
+        .bottom-buttons {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        /* 统一按钮样式 */
+        .bottom-buttons button {
+            background-color: #444;
+            color: white;
+            border: none;
+            padding: 6px 12px; /* 跟复制按钮一样的大小 */
+            font-size: 14px;   /* 与复制按钮一致 */
+            cursor: pointer;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .bottom-buttons button:hover {
+            background-color: #333;
+        }
+
+        /* 置顶按钮 */
+        .top-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 50%;
+            font-size: 24px;
+            display: none;
+        }
+
+        .top-button:hover {
+            background-color: #e53935;
+        }
+
+        window.onscroll = function() {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                document.querySelector('.top-button').style.display = 'block';
+            } else {
+                document.querySelector('.top-button').style.display = 'none';
+            }
+        };
