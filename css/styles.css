@@ -156,6 +156,7 @@
             overflow-x: auto;
             width: 100%;
             box-sizing: border-box;
+			text-align: left; /* 确保内部元素靠左对齐 */
         }
 
         .copy-btn,
