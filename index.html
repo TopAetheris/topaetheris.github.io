@@ -7,9 +7,6 @@
     <link rel="stylesheet" href="./css/styles.css?v=20250212">
     <link rel="icon" href="https://www.aetheris.top/logo/favicon.ico" type="image/x-icon">
     <style>
-
-
-
         .container {
             max-width: 1200px;
             margin: 50px auto;
@@ -18,6 +15,17 @@
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
             border-radius: 8px;
         }
+
+		header img {
+			width: 200px;
+			height: 200px; /* 设定高度与宽度一致，以保持圆形 */
+			border-radius: 50%; /* 让图片变成圆形 */
+			transition: transform 0.5s ease;
+		}
+
+		header img:hover {
+			transform: rotate(360deg); /* 旋转 360 度 */
+		}
 
 
 
@@ -97,19 +105,17 @@
             justify-content: center;
         }
 
-		.toggle-btn {
-			background-color: #444;
-			color: white;
-			border: none;
-			padding: 6px 12px; /* 更小的内边距 */
-			margin-top: 10px; /* 保持上边距 */
-			border-radius: 5px;
-			cursor: pointer;
-			font-size: 12px; /* 更小的字体 */
-			transition: background-color 0.3s, transform 0.2s;
-		}
-
-
+        .toggle-btn {
+            background-color: #444;
+            color: white;
+            border: none;
+            padding: 6px 12px; /* 更小的内边距 */
+            margin-top: 10px; /* 保持上边距 */
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px; /* 更小的字体 */
+            transition: background-color 0.3s, transform 0.2s;
+        }
 
         .toggle-btn:hover {
             background-color: #333;
@@ -130,7 +136,7 @@
 <body>
     <header>
         <h1>???</h1>
-		<img src="home.gif" alt="Home Image">
+        <img src="home.gif" alt="Home Image">
     </header>
 
     <div class="container">
@@ -185,6 +191,7 @@
                     <a href="https://www.github.com" target="_blank">GitHub</a>
                     <a href="https://www.cloudflare.com" target="_blank">Cloudflare</a>
                     <a href="https://gchq.github.io/CyberChef/" target="_blank">CyberChef</a>
+					
                 </div>
                 <div class="toggle-btn-container">
                     <button onclick="toggleVisibility('more-links')" class="toggle-btn">展开更多</button>
@@ -210,6 +217,7 @@
                 element.style.display = "none";
             }
         }
+		
     </script>
 </body>
 </html>
