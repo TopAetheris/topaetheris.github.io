@@ -217,7 +217,37 @@
                 element.style.display = "none";
             }
         }
-		
+
+		// 禁用 F12、Ctrl+Shift+I 和其他开发者工具常用快捷键
+		document.addEventListener('keydown', function(e) {
+		  // 禁用 F12 和 Ctrl+Shift+I
+		  if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.shiftKey && e.key === 'C')) {
+			e.preventDefault();
+		  }
+		  // 禁用 Ctrl+U（查看页面源代码）
+		  if (e.ctrlKey && e.key === 'u') {
+			e.preventDefault();
+		  }
+		  // 禁用 Ctrl+S（保存页面的快捷键）
+		  if (e.ctrlKey && e.key === 's') {
+			e.preventDefault();
+		  }
+		});
+
+		// 禁用右键菜单
+		document.addEventListener('contextmenu', function(e) {
+		  e.preventDefault();
+		});
+
+		// 防止窗口尺寸改变（避免开发者工具占用空间）
+		window.onresize = function() {
+		  // 若窗口宽度过小，可能是开发者工具被启用了（仅在某些浏览器下有效）
+		  var width = window.innerWidth;
+		  if (width < 600) {
+			window.location.reload();  // 尝试重新加载页面
+		  }
+		};
+
     </script>
 </body>
 </html>
